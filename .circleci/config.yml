@@ -49,9 +49,9 @@ jobs:
             flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
       - run:
-        name: Run CLI tests
-        command: |
-          poetry run pytest -vvv ./tests/test_cli*.py
+          name: Run CLI tests
+          command: |
+            poetry run pytest -vvv ./tests/test_cli*.py
 
       - run:
           name: Run GUI tabs tests
@@ -59,19 +59,19 @@ jobs:
             xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_tabs.py --rungui
 
       - run:
-        name: Run GUI share tests
-        command: |
-          xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_share.py --rungui
+          name: Run GUI share tests
+          command: |
+            xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_share.py --rungui
 
       - run:
-        name: Run GUI receive tests
-        command: |
-          xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_receive.py --rungui
+          name: Run GUI receive tests
+          command: |
+            xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_receive.py --rungui
 
       - run:
-        name: Run GUI website tests
-        command: |
-          xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_website.py --rungui
+          name: Run GUI website tests
+          command: |
+            xvfb-run -s "-screen 0 1280x1024x24" poetry run pytest -vvv ./tests/tests_gui_website.py --rungui
 
   test-3.7:
     <<: *test-template
